@@ -68,26 +68,38 @@ os.system('rsync -a ' + os.path.join(tmp_upgrade_download_folder_path, 'glpi', '
 shutil.rmtree(os.path.join(tmp_upgrade_download_folder_path, 'glpi'))
 
 # Move old instance folder
-print("\n> Move instance to tmp folder :", tmp_upgrade_sources_folder_path)
+print("> Move instance to tmp folder :", tmp_upgrade_sources_folder_path)
 os.system('rsync -a ' + os.path.join(args.path, '') + ' ' + os.path.join(tmp_upgrade_sources_folder_path, ''))
 shutil.rmtree(args.path)
 os.makedirs(args.path, 493)
 
 # Copy new version sources
-print("\n> Copy new version sources")
+print("> Copy new version sources")
 os.system('rsync -a ' + os.path.join(tmp_upgrade_download_folder_path, '') + ' ' + os.path.join(args.path, ''))
 
 # Synchronize files
-print("\n> Synchronize files")
-os.system('rsync -a ' + os.path.join(tmp_upgrade_sources_folder_path, 'files', '') + ' ' + os.path.join(args.path, 'files', ''))
+print("\n> Synchronizing")
+if os.path.isdir(os.path.join(tmp_upgrade_sources_folder_path, 'files')):
+    print("\t- files")
+    os.system('rsync -a ' + os.path.join(tmp_upgrade_sources_folder_path, 'files', '') + ' ' + os.path.join(args.path, 'files', ''))
+else:
+    print("\t- files (missing folder)")
 
 # Synchronize plugins
-print("\n> Synchronize plugins")
-os.system('rsync -a ' + os.path.join(tmp_upgrade_sources_folder_path, 'plugins', '') + ' ' + os.path.join(args.path, 'plugins', ''))
+if os.path.isdir(os.path.join(tmp_upgrade_sources_folder_path, 'plugins')):
+    print("\t- plugins")
+    os.system('rsync -a ' + os.path.join(tmp_upgrade_sources_folder_path, 'plugins', '') + ' ' + os.path.join(args.path, 'plugins', ''))
+else:
+    print("\t- plugins (missing folder)")
 
 # Synchronize glpicrypt.key
-print("\n> Synchronize glpicrypt.key")
-shutil.copyfile(os.path.join(tmp_upgrade_sources_folder_path, 'config', '') + 'glpicrypt.key', os.path.join(args.path, 'config', '') + 'glpicrypt.key')
+tmp_upgrade_sources_cryptkey_path = os.path.join(tmp_upgrade_sources_folder_path, 'config', 'glpicrypt.key')
+
+if os.path.isfile(tmp_upgrade_sources_cryptkey_path):
+    print("\t- config/glpicrypt.key")
+    shutil.copyfile(tmp_upgrade_sources_cryptkey_path, os.path.join(args.path, 'config', 'glpicrypt.key'))
+else:
+    print("\t- config/glpicrypt.key (missing file)")
 
 # Fix owners
 print("\n> Fix owners and rights")
@@ -96,10 +108,10 @@ os.system('chmod -R 0755 ' + args.path)
 
 # Clean tmp folders
 if args.clean:
-    print("\n> Clean tmp folders")
+    print("> Clean tmp folders")
     shutil.rmtree(tmp_upgrade_folder_path)
 else:
-    print("\n> Skip cleaning tmp folders")
+    print("> Clean tmp folders (skipped)")
 
 # End procedure
-print("\n> Stop upgrading to version", args.version)
+print("> Stop upgrading to version", args.version, "\n")
