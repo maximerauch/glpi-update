@@ -1,7 +1,7 @@
 # glpi-update
 ## Example
 #### Command
-`python3 glpi-upgrade.py -v 9.5.6 -p /var/www/instance -c 0`
+`python3 glpi-upgrade.py -v 9.5.6 -p /var/www/instance -c 1`
 
 #### Output
 

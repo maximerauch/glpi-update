@@ -104,11 +104,11 @@ os.system('chown -R www-data:www-data ' + args.path)
 os.system('chmod -R 0755 ' + args.path)
 
 # Clean tmp folders
-if args.clean:
-    print("> Clean tmp folders")
+if args.clean == 1:
+    print("> Clean temporary folders")
     shutil.rmtree(tmp_upgrade_folder_path)
 else:
-    print("> Clean tmp folders (skipped)")
+    print("> Clean temporary folders (skipped)")
 
 # End procedure
 print("> Stop upgrading to version", args.version, "\n")
