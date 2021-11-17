@@ -28,7 +28,6 @@ print("\n> Start upgrading to version :", args.version)
 # Initialize tmp folders
 tmp_upgrade_folder_name = date.today().strftime("%Y%m%d") + "_glpi_upgrade_" + args.version
 tmp_upgrade_folder_path = os.path.join('/tmp', tmp_upgrade_folder_name)
-tmp_upgrade_sources_folder_path = os.path.join(tmp_upgrade_folder_path, 'sources')
 tmp_upgrade_backups_folder_path = os.path.join(tmp_upgrade_folder_path, 'backups')
 tmp_upgrade_download_folder_path = os.path.join(tmp_upgrade_folder_path, 'download')
 
@@ -40,8 +39,6 @@ if os.path.exists(tmp_upgrade_folder_path):
 print("\n> Create temporary folders")
 print("\t-", tmp_upgrade_folder_path)
 os.makedirs(tmp_upgrade_folder_path, 493)
-print("\t-", tmp_upgrade_sources_folder_path)
-os.makedirs(tmp_upgrade_sources_folder_path, 493)
 print("\t-", tmp_upgrade_backups_folder_path)
 os.makedirs(tmp_upgrade_backups_folder_path, 493)
 print("\t-", tmp_upgrade_download_folder_path)
@@ -68,8 +65,8 @@ os.system('rsync -a ' + os.path.join(tmp_upgrade_download_folder_path, 'glpi', '
 shutil.rmtree(os.path.join(tmp_upgrade_download_folder_path, 'glpi'))
 
 # Move old instance folder
-print("> Move instance to tmp folder :", tmp_upgrade_sources_folder_path)
-os.system('rsync -a ' + os.path.join(args.path, '') + ' ' + os.path.join(tmp_upgrade_sources_folder_path, ''))
+print("> Move instance to tmp folder :", tmp_upgrade_backups_folder_path)
+os.system('rsync -a ' + os.path.join(args.path, '') + ' ' + os.path.join(tmp_upgrade_backups_folder_path, ''))
 shutil.rmtree(args.path)
 os.makedirs(args.path, 493)
 
@@ -79,25 +76,25 @@ os.system('rsync -a ' + os.path.join(tmp_upgrade_download_folder_path, '') + ' '
 
 # Synchronize files
 print("\n> Synchronizing")
-if os.path.isdir(os.path.join(tmp_upgrade_sources_folder_path, 'files')):
+if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'files')):
     print("\t- files")
-    os.system('rsync -a ' + os.path.join(tmp_upgrade_sources_folder_path, 'files', '') + ' ' + os.path.join(args.path, 'files', ''))
+    os.system('rsync -a ' + os.path.join(tmp_upgrade_backups_folder_path, 'files', '') + ' ' + os.path.join(args.path, 'files', ''))
 else:
     print("\t- files (missing folder)")
 
 # Synchronize plugins
-if os.path.isdir(os.path.join(tmp_upgrade_sources_folder_path, 'plugins')):
+if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'plugins')):
     print("\t- plugins")
-    os.system('rsync -a ' + os.path.join(tmp_upgrade_sources_folder_path, 'plugins', '') + ' ' + os.path.join(args.path, 'plugins', ''))
+    os.system('rsync -a ' + os.path.join(tmp_upgrade_backups_folder_path, 'plugins', '') + ' ' + os.path.join(args.path, 'plugins', ''))
 else:
     print("\t- plugins (missing folder)")
 
 # Synchronize glpicrypt.key
-tmp_upgrade_sources_cryptkey_path = os.path.join(tmp_upgrade_sources_folder_path, 'config', 'glpicrypt.key')
+tmp_upgrade_backups_cryptkey_path = os.path.join(tmp_upgrade_backups_folder_path, 'config', 'glpicrypt.key')
 
-if os.path.isfile(tmp_upgrade_sources_cryptkey_path):
+if os.path.isfile(tmp_upgrade_backups_cryptkey_path):
     print("\t- config/glpicrypt.key")
-    shutil.copyfile(tmp_upgrade_sources_cryptkey_path, os.path.join(args.path, 'config', 'glpicrypt.key'))
+    shutil.copyfile(tmp_upgrade_backups_cryptkey_path, os.path.join(args.path, 'config', 'glpicrypt.key'))
 else:
     print("\t- config/glpicrypt.key (missing file)")
 
