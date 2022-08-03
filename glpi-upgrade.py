@@ -89,14 +89,33 @@ if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'plugins')):
 else:
     print("\t- plugins (missing folder)")
     
-# Synchronize logos
-if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'pics')):
-    print("\t- logos")
-    os.system('cp ' + os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'fd_logo.png') + ' ' + os.path.join(args.path, 'pics', ''))
-    os.system('cp ' + os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'login_logo_glpi.png') + ' ' + os.path.join(args.path, 'pics', ''))
-else:
-    print("\t- pics (missing pics)")
+# Synchronize login_logo_glpi.png
+tmp_upgrade_backups_login_logo_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'login_logo_glpi.png')
 
+if os.path.isfile(tmp_upgrade_backups_login_logo_path):
+    print("\t- pics/login_logo_glpi.png")
+    shutil.copyfile(tmp_upgrade_backups_login_logo_path, os.path.join(args.path, 'pics', 'login_logo_glpi.png'))
+else:
+    print("\t- pics/login_logo_glpi.png (missing file)")
+    
+# Synchronize fd_logo.png
+tmp_upgrade_backups_logo_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'fd_logo.png')
+
+if os.path.isfile(tmp_upgrade_backups_logo_path):
+    print("\t- pics/fd_logo.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_path, os.path.join(args.path, 'pics', 'fd_logo.png'))
+else:
+    print("\t- pics/fd_logo.png (missing file)")
+
+# Synchronize config_db.php
+tmp_upgrade_backups_config_db_path = os.path.join(tmp_upgrade_backups_folder_path, 'config', 'config_db.php')
+
+if os.path.isfile(tmp_upgrade_backups_config_db_path):
+    print("\t- config/config_db.php")
+    shutil.copyfile(tmp_upgrade_backups_config_db_path, os.path.join(args.path, 'config', 'config_db.php'))
+else:
+    print("\t- config/config_db.php (missing file)")
+    
 # Synchronize glpicrypt.key
 tmp_upgrade_backups_cryptkey_path = os.path.join(tmp_upgrade_backups_folder_path, 'config', 'glpicrypt.key')
 
