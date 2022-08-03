@@ -25,6 +25,7 @@
 > Synchronizing
         - files
         - plugins
+        - logos
         - config/glpicrypt.key
 
 > Fix owners and rights
