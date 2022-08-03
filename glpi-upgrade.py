@@ -88,6 +88,14 @@ if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'plugins')):
     os.system('rsync -a ' + os.path.join(tmp_upgrade_backups_folder_path, 'plugins', '') + ' ' + os.path.join(args.path, 'plugins', ''))
 else:
     print("\t- plugins (missing folder)")
+    
+# Synchronize logos
+if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'pics')):
+    print("\t- logos")
+    os.system('cp ' + os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'fd_logo.png') + ' ' + os.path.join(args.path, 'pics', ''))
+    os.system('cp ' + os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'login_logo_glpi.png') + ' ' + os.path.join(args.path, 'pics', ''))
+else:
+    print("\t- pics (missing pics)")
 
 # Synchronize glpicrypt.key
 tmp_upgrade_backups_cryptkey_path = os.path.join(tmp_upgrade_backups_folder_path, 'config', 'glpicrypt.key')
