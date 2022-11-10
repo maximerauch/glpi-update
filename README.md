@@ -25,6 +25,7 @@
 > Synchronizing
         - files
         - plugins
+        - marketplace
         - logos
         - config/glpicrypt.key
 

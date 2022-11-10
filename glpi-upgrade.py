@@ -88,6 +88,13 @@ if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'plugins')):
     os.system('rsync -a ' + os.path.join(tmp_upgrade_backups_folder_path, 'plugins', '') + ' ' + os.path.join(args.path, 'plugins', ''))
 else:
     print("\t- plugins (missing folder)")
+
+# Synchronize marketplace
+if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'marketplace')):
+    print("\t- marketplace")
+    os.system('rsync -a ' + os.path.join(tmp_upgrade_backups_folder_path, 'marketplace', '') + ' ' + os.path.join(args.path, 'marketplace', ''))
+else:
+    print("\t- marketplace (missing folder)")
     
 # Synchronize login_logo_glpi.png
 tmp_upgrade_backups_login_logo_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'login_logo_glpi.png')
