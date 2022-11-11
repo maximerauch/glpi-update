@@ -121,6 +121,15 @@ if os.path.isfile(tmp_upgrade_backups_logo_path):
 else:
     print("\t- pics/fd_logo.png (missing file)")
 
+# Synchronize favicon.ico
+tmp_upgrade_backups_favicon_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'favicon.ico')
+
+if os.path.isfile(tmp_upgrade_backups_favicon_path):
+    print("\t- pics/favicon.ico")
+    shutil.copyfile(tmp_upgrade_backups_favicon_path, os.path.join(args.path, 'pics', 'favicon.ico'))
+else:
+    print("\t- pics/favicon.ico (missing file)")
+
 # Synchronize config_db.php
 tmp_upgrade_backups_config_db_path = os.path.join(tmp_upgrade_backups_folder_path, 'config', 'config_db.php')
 
