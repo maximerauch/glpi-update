@@ -26,7 +26,10 @@
         - files
         - plugins
         - marketplace
-        - logos
+        - cert
+        - pics/login_logo_glpi.png
+        - pics/fd_logo.png
+        - config/config_db.php
         - config/glpicrypt.key
 
 > Fix owners and rights

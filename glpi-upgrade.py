@@ -95,6 +95,13 @@ if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'marketplace')):
     os.system('rsync -a ' + os.path.join(tmp_upgrade_backups_folder_path, 'marketplace', '') + ' ' + os.path.join(args.path, 'marketplace', ''))
 else:
     print("\t- marketplace (missing folder)")
+
+# Synchronize cert
+if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'cert')):
+    print("\t- cert")
+    os.system('rsync -a ' + os.path.join(tmp_upgrade_backups_folder_path, 'cert', '') + ' ' + os.path.join(args.path, 'cert', ''))
+else:
+    print("\t- cert (missing folder)")
     
 # Synchronize login_logo_glpi.png
 tmp_upgrade_backups_login_logo_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'login_logo_glpi.png')
