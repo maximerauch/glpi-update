@@ -113,23 +113,86 @@ if os.path.isdir(os.path.join(tmp_upgrade_backups_folder_path, 'cert')):
 else:
     print("\t- cert (missing folder)")
     
-# Synchronize login_logo_glpi.png
-tmp_upgrade_backups_login_logo_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'login_logo_glpi.png')
+# Synchronize pics/logos/logo-G-100-black.png
+tmp_upgrade_backups_logo_g_100_black_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'logos', 'logo-G-100-black.png')
 
-if os.path.isfile(tmp_upgrade_backups_login_logo_path):
-    print("\t- pics/login_logo_glpi.png")
-    shutil.copyfile(tmp_upgrade_backups_login_logo_path, os.path.join(args.path, 'pics', 'login_logo_glpi.png'))
+if os.path.isfile(tmp_upgrade_backups_logo_g_100_black_path):
+    print("\t- pics/logos/logo-G-100-black.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_g_100_black_path, os.path.join(args.path, 'pics', 'logos', 'logo-G-100-black.png'))
 else:
-    print("\t- pics/login_logo_glpi.png (missing file)")
-    
-# Synchronize fd_logo.png
-tmp_upgrade_backups_logo_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'fd_logo.png')
+    print("\t- pics/logos/logo-G-100-black.png (missing file)")
 
-if os.path.isfile(tmp_upgrade_backups_logo_path):
-    print("\t- pics/fd_logo.png")
-    shutil.copyfile(tmp_upgrade_backups_logo_path, os.path.join(args.path, 'pics', 'fd_logo.png'))
+# Synchronize pics/logos/logo-G-100-grey.png
+tmp_upgrade_backups_logo_g_100_grey_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'logos', 'logo-G-100-grey.png')
+
+if os.path.isfile(tmp_upgrade_backups_logo_g_100_grey_path):
+    print("\t- pics/logos/logo-G-100-grey.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_g_100_grey_path, os.path.join(args.path, 'pics', 'logos', 'logo-G-100-grey.png'))
 else:
-    print("\t- pics/fd_logo.png (missing file)")
+    print("\t- pics/logos/logo-G-100-grey.png (missing file)")
+
+# Synchronize pics/logos/logo-G-100-white.png
+tmp_upgrade_backups_logo_g_100_white_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'logos', 'logo-G-100-white.png')
+
+if os.path.isfile(tmp_upgrade_backups_logo_g_100_white_path):
+    print("\t- pics/logos/logo-G-100-white.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_g_100_white_path, os.path.join(args.path, 'pics', 'logos', 'logo-G-100-white.png'))
+else:
+    print("\t- pics/logos/logo-G-100-white.png (missing file)")
+
+# Synchronize pics/logos/logo-GLPI-100-black.png
+tmp_upgrade_backups_logo_glpi_100_white_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'logos', 'logo-GLPI-100-black.png')
+
+if os.path.isfile(tmp_upgrade_backups_logo_glpi_100_white_path):
+    print("\t- pics/logos/logo-GLPI-100-black.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_glpi_100_white_path, os.path.join(args.path, 'pics', 'logos', 'logo-GLPI-100-black.png'))
+else:
+    print("\t- pics/logos/logo-GLPI-100-black.png (missing file)")
+
+# Synchronize pics/logos/logo-GLPI-100-grey.png
+tmp_upgrade_backups_logo_glpi_100_white_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'logos', 'logo-GLPI-100-grey.png')
+
+if os.path.isfile(tmp_upgrade_backups_logo_glpi_100_white_path):
+    print("\t- pics/logos/logo-GLPI-100-grey.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_glpi_100_white_path, os.path.join(args.path, 'pics', 'logos', 'logo-GLPI-100-grey.png'))
+else:
+    print("\t- pics/logos/logo-GLPI-100-grey.png (missing file)")
+
+# Synchronize pics/logos/logo-GLPI-100-white.png
+tmp_upgrade_backups_logo_glpi_100_white_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'logos', 'logo-GLPI-100-white.png')
+
+if os.path.isfile(tmp_upgrade_backups_logo_glpi_100_white_path):
+    print("\t- pics/logos/logo-GLPI-100-white.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_glpi_100_white_path, os.path.join(args.path, 'pics', 'logos', 'logo-GLPI-100-white.png'))
+else:
+    print("\t- pics/logos/logo-GLPI-100-white.png (missing file)")
+
+# Synchronize pics/logos/logo-GLPI-250-black.png
+tmp_upgrade_backups_logo_glpi_250_black_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'logos', 'logo-GLPI-250-black.png')
+
+if os.path.isfile(tmp_upgrade_backups_logo_glpi_250_black_path):
+    print("\t- pics/logos/logo-GLPI-250-black.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_glpi_250_black_path, os.path.join(args.path, 'pics', 'logos', 'logo-GLPI-250-black.png'))
+else:
+    print("\t- pics/logos/logo-GLPI-250-black.png (missing file)")
+
+# Synchronize pics/logos/logo-GLPI-250-grey.png
+tmp_upgrade_backups_logo_glpi_250_grey_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'logos', 'logo-GLPI-250-grey.png')
+
+if os.path.isfile(tmp_upgrade_backups_logo_glpi_250_grey_path):
+    print("\t- pics/logos/logo-GLPI-250-grey.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_glpi_250_grey_path, os.path.join(args.path, 'pics', 'logos', 'logo-GLPI-250-grey.png'))
+else:
+    print("\t- pics/logos/logo-GLPI-250-grey.png (missing file)")
+
+# Synchronize pics/logos/logo-GLPI-250-white.png
+tmp_upgrade_backups_logo_glpi_250_white_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'logos', 'logo-GLPI-250-white.png')
+
+if os.path.isfile(tmp_upgrade_backups_logo_glpi_250_white_path):
+    print("\t- pics/logos/logo-GLPI-250-white.png")
+    shutil.copyfile(tmp_upgrade_backups_logo_glpi_250_white_path, os.path.join(args.path, 'pics', 'logos', 'logo-GLPI-250-white.png'))
+else:
+    print("\t- pics/logos/logo-GLPI-250-white.png (missing file)")
 
 # Synchronize favicon.ico
 tmp_upgrade_backups_favicon_path = os.path.join(tmp_upgrade_backups_folder_path, 'pics', 'favicon.ico')

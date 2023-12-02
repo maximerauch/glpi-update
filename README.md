@@ -34,8 +34,16 @@
         - plugins
         - marketplace
         - cert
-        - pics/login_logo_glpi.png
-        - pics/fd_logo.png
+        - pics/logos/logo-G-100-black.png
+        - pics/logos/logo-G-100-grey.png
+        - pics/logos/logo-G-100-white.png
+        - pics/logos/logo-GLPI-100-black.png
+        - pics/logos/logo-GLPI-100-grey.png
+        - pics/logos/logo-GLPI-100-white.png
+        - pics/logos/logo-GLPI-250-black.png
+        - pics/logos/logo-GLPI-250-grey.png
+        - pics/logos/logo-GLPI-250-white.png
+        - pics/favicon.ico
         - config/config_db.php
         - config/glpicrypt.key
 
