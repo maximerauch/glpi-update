@@ -1,12 +1,12 @@
 # glpi-update
 ## Example
 #### Command
-`python3 glpi-upgrade.py -v 9.5.6 -p /var/www/instance -c 1`
+`python3 glpi-upgrade.py -v 10.0.10 -p /var/www/instance -c 1`
 
 #### Output
 
 ```
-> Start upgrading to version : 9.5.6
+> Start upgrading from ^10.0 to version : 10.0.10
 
 > Create temporary folders
         - /tmp/20211117_glpi_upgrade_9.5.6
