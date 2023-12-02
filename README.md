@@ -9,16 +9,16 @@
 > Start upgrading from ^10.0 to version : 10.0.10
 
 > Create temporary folders
-        - /tmp/20211117_glpi_upgrade_9.5.6
-        - /tmp/20211117_glpi_upgrade_9.5.6/backups
-        - /tmp/20211117_glpi_upgrade_9.5.6/download
+        - /tmp/20211117_glpi_upgrade_10.0.10
+        - /tmp/20211117_glpi_upgrade_10.0.10/backups
+        - /tmp/20211117_glpi_upgrade_10.0.10/download
 
-> Download new version : https://github.com/glpi-project/glpi/releases/download/9.5.6/glpi-9.5.6.tgz
+> Download new version : https://github.com/glpi-project/glpi/releases/download/10.0.10/glpi-10.0.10.tgz
         - Downloading: 0% [0 / 45951202] bytes
         - ...
         - Downloading: 100% [45951202 / 45951202] bytes
 
-> Unzip new version : /tmp/20211117_glpi_upgrade_9.5.6/download/glpi.tgz
+> Unzip new version : /tmp/20211117_glpi_upgrade_10.0.10/download/glpi.tgz
 
 > Clean cache folders
     - /var/www/instance/files/_cache
@@ -26,7 +26,7 @@
     - /var/www/instance/files/_sessions
     - /var/www/instance/files/_tmp
     
-> Move instance to tmp folder : /tmp/20211117_glpi_upgrade_9.5.6/backups
+> Move instance to tmp folder : /tmp/20211117_glpi_upgrade_10.0.10/backups
 > Copy new version sources
 
 > Synchronizing
@@ -49,5 +49,5 @@
 
 > Fix owners and rights
 > Clean tmp folders
-> Stop upgrading to version 9.5.6
+> Stop upgrading to version 10.0.10
 ```
