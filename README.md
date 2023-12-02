@@ -19,6 +19,13 @@
         - Downloading: 100% [45951202 / 45951202] bytes
 
 > Unzip new version : /tmp/20211117_glpi_upgrade_9.5.6/download/glpi.tgz
+
+> Clean cache folders
+    - /var/www/instance/files/_cache
+    - /var/www/instance/files/_dumps
+    - /var/www/instance/files/_sessions
+    - /var/www/instance/files/_tmp
+    
 > Move instance to tmp folder : /tmp/20211117_glpi_upgrade_9.5.6/backups
 > Copy new version sources
 
